@@ -125,7 +125,11 @@ struct line_table * read_struct(char *file_name) {
 
 void write_struct(char *file_name, struct line_table * lt) {
     FILE *f = fopen(file_name, "w");
-    
+    int i = 0;
+    while(lt[i].line_key != 0) {
+        fprintf(f, "%d,%s\n", lt[i].line_key, lt[i].line_data);
+        i++;
+    }
     fclose(f);
     printf("\nRecard from RAM to file - done\n");
 }
