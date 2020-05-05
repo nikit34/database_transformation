@@ -2,8 +2,7 @@
 
 void shifting(char *file_name) {
     struct line_table *lt = read_struct(file_name);
-    int tmp_key;
-    char *tmp_data;
+    struct line_table *tmp_lt = (line_table*)malloc(sizeof(line_table));
     int length_table = 0;
     while(lt[length_table].line_key != 0) {
         length_table++;
@@ -14,13 +13,10 @@ void shifting(char *file_name) {
         rand_i = rand() % length_table;
         do {
             rand_j = rand() % length_table;
-        } while(rand_i != rand_j);
-        tmp_key = lt[rand_i].line_key;
-        tmp_data = lt[rand_i].line_data;
-        lt[rand_i].line_key = lt[rand_j].line_key;
-        lt[rand_i].line_data = lt[rand_j].line_data;
-        lt[rand_j].line_key = tmp_key;
-        lt[rand_j].line_data = tmp_data;
+        } while(rand_i == rand_j);
+        *tmp_lt = lt[rand_i];
+        lt[rand_i] = lt[rand_j];
+        lt[rand_j] = *tmp_lt;
         rand_count_iterations--;
     }
     write_struct(file_name, lt);
@@ -29,19 +25,15 @@ void shifting(char *file_name) {
 
 void castling(char *file_name) {
     struct line_table *lt = read_struct(file_name);
-    int tmp_key;
-    char *tmp_data;
+    struct line_table *tmp_lt = (line_table*)malloc(sizeof(line_table));
     int length_table = 0;
     while(lt[length_table].line_key != 0) {
         length_table++;
     }
     for(int i = 0; i < (int)(length_table / 2); i++) {
-        tmp_key = lt[i].line_key;
-        tmp_data = lt[i].line_data;
-        lt[i].line_key = lt[length_table - i - 1].line_key;
-        lt[i].line_data = lt[length_table - i - 1].line_data;
-        lt[length_table - i - 1].line_key = tmp_key;
-        lt[length_table - i - 1].line_data = tmp_data;
+        *tmp_lt = lt[i];
+        lt[i] = lt[length_table - i - 1];
+        lt[length_table - i - 1] = *tmp_lt;
     }
     write_struct(file_name, lt);
     printf("\nCastling done\n");
