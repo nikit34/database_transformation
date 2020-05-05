@@ -6,6 +6,7 @@
 #include<stdlib.h>
 #include<stdbool.h>
 #include<string.h>
+#include<math.h>
 
 typedef struct line_table{
     int line_key;

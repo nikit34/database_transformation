@@ -155,7 +155,7 @@ int main(){
             read_table(file_name);
             break;
         case 3:
-            //search_binary(file_name);
+            search_binary(file_name);
             break;
         case 4:
             //sort_Shell_empitical_sequence(file_name);
