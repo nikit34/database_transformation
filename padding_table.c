@@ -20,7 +20,7 @@ void shifting(char *file_name) {
         rand_count_iterations--;
     }
     write_struct(file_name, lt);
-    printf("\nShifting done\n");
+    printf("Shifting done\n");
 }
 
 void castling(char *file_name) {
@@ -36,5 +36,5 @@ void castling(char *file_name) {
         lt[length_table - i - 1] = *tmp_lt;
     }
     write_struct(file_name, lt);
-    printf("\nCastling done\n");
+    printf("Castling done\n");
 }

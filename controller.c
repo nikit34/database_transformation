@@ -158,7 +158,7 @@ int main(){
             search_binary(file_name);
             break;
         case 4:
-            //sort_Shell_empitical_sequence(file_name);
+            sort_Shell(file_name);
             break;
         case 5:
             shifting(file_name);

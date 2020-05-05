@@ -14,7 +14,7 @@ typedef struct line_table{
 } line_table;
 
 // sort_search.c
-void sort_Shell_empitical_sequence(char *file_name); // сортировка по индексу
+void sort_Shell(char *file_name); // сортировка по индексу
 void search_binary(char *file_name); // двоичный поиск по индексу
 
 // padding_table.c
