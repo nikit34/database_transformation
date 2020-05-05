@@ -132,6 +132,11 @@ void write_struct(char *file_name, struct line_table * lt) {
     }
     fclose(f);
     printf("\nRecard from RAM to file - done\n");
+    i = 0;
+    while(lt[i].line_key != 0) {
+        printf("%d - %s\n", lt[i].line_key, lt[i].line_data);
+        i++;
+    }
 }
 
 int main(){
@@ -156,7 +161,7 @@ int main(){
             //sort_Shell_empitical_sequence(file_name);
             break;
         case 5:
-            //shifting(file_name);
+            shifting(file_name);
             break;
         case 6:
             castling(file_name);
